@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+
+    <name>COM_FFW01ROSTER</name>
+    <author>Michaël Minault</author>
+    <authorEmail>michael.minault@gadz.org</authorEmail>
+    <version>0.0.1</version>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>ffw01roster.php</filename>
+        <folder>language</folder>
+    </files>
+
+    <administration>
+        <menu link="index.php?option=com_ffw01roster">COM_FFW01ROSTER_MENU</menu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>ffw01roster.php</filename>
+            <folder>language</folder>
+            <folder>sql</folder>
+        </files>
+    </administration>
+
+</extension>
