@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-    <layout title="COM_FFW01ROSTER_LIST_VIEW_DEFAULT_TITLE">
-        <message>COM_FFW01ROSTER_LIST_VIEW_DEFAULT_DESC</message>
+    <layout title="COM_FFW01ROSTER_EVENTS_VIEW_DEFAULT_TITLE">
+        <message>COM_FFW01ROSTER_EVENTS_VIEW_DEFAULT_DESC</message>
     </layout>
 </metadata>

@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 
-class FFW01RosterViewList extends JViewLegacy
+class FFW01RosterViewEvents extends JViewLegacy
 {
 	function display($tpl = null)
 	{
