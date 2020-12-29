@@ -25,11 +25,13 @@
     <files folder="site">
         <filename>index.html</filename>
         <filename>ffw01roster.php</filename>
+        <filename>controller.php</filename>
+        <folder>views</folder>
         <folder>language</folder>
     </files>
 
     <administration>
-        <menu link="index.php?option=com_ffw01roster">COM_FFW01ROSTER_MENU</menu>
+        <menu link="index.php?option=com_ffw01roster">COM_FFW01ROSTER</menu>
         <files folder="admin">
             <filename>index.html</filename>
             <filename>ffw01roster.php</filename>
