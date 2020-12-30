@@ -36,6 +36,9 @@
         <files folder="admin">
             <filename>index.html</filename>
             <filename>ffw01roster.php</filename>
+            <filename>controller.php</filename>
+            <folder>models</folder>
+            <folder>views</folder>
             <folder>language</folder>
             <folder>sql</folder>
         </files>
