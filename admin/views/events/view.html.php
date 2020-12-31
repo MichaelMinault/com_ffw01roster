@@ -13,6 +13,16 @@ class FFW01RosterViewEvents extends JViewLegacy
             return false;
         }
 
+        $this->addToolBar();
+
         parent::display($tpl);
+    }
+
+    protected function addToolBar()
+    {
+        JToolbarHelper::title(JText::_('COM_FFW01ROSTER_EVENTS_CAPTION'));
+        JToolbarHelper::addNew('event.add');
+        JToolbarHelper::editList('event.edit');
+        JToolbarHelper::deleteList('', 'events.delete');
     }
 }

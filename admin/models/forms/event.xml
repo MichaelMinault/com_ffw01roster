@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="hidden" />
+        <field name="title" type="text" label="COM_FFW01ROSTER_EVENT_TITLE_FIELD_LABEL" description="COM_FFW01ROSTER_EVENT_TITLE_FIELD_DESC" size="100" class="inputbox" default="" />
+    </fieldset>
+</form>
