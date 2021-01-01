@@ -37,10 +37,12 @@
             <filename>index.html</filename>
             <filename>ffw01roster.php</filename>
             <filename>controller.php</filename>
+            <filename>access.xml</filename>
             <folder>controllers</folder>
             <folder>models</folder>
             <folder>tables</folder>
             <folder>views</folder>
+            <folder>helpers</folder>
             <folder>language</folder>
             <folder>sql</folder>
         </files>

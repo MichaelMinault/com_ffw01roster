@@ -16,6 +16,8 @@ class FFW01RosterViewEvents extends JViewLegacy
             return false;
         }
 
+        FFW01RosterHelper::addSubmenu('events');
+
         $this->addToolBar();
 
         parent::display($tpl);
