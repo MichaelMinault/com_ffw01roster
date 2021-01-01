@@ -1,8 +1,16 @@
 <?php
 defined('_JEXEC') or die('Restricted Access');
+
+JHtml::_('formbehavior.chosen', 'select');
+
+$ordering = $this->escape($this->listOrdering);
+$direction = $this->escape($this->listDirection);
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_ffw01roster&view=events'); ?>" method="post" id="adminForm"
     name="adminForm">
+    <div class="row-fluid">
+        <?php echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this)); ?>
+    </div>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -13,10 +21,10 @@ defined('_JEXEC') or die('Restricted Access');
                     <?php echo JHtml::_('grid.checkall'); ?>
                 </th>
                 <th width="95%">
-                    <?php echo JText::_('COM_FFW01ROSTER_EVENT_TITLE_FIELD_LABEL') ;?>
+                    <?php echo JHtml::_('searchtools.sort', 'COM_FFW01ROSTER_EVENT_TITLE_FIELD_LABEL', 'title', $direction, $ordering) ;?>
                 </th>
                 <th width="2%">
-                    <?php echo JText::_('COM_FFW01ROSTER_EVENT_ID_FIELD_LABEL'); ?>
+                    <?php echo JHtml::_('searchtools.sort', 'COM_FFW01ROSTER_EVENT_ID_FIELD_LABEL', 'id', $direction, $ordering); ?>
                 </th>
             </tr>
         </thead>

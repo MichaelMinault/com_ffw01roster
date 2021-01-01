@@ -32,7 +32,7 @@ class FFW01RosterViewEvent extends JViewLegacy
             $title = JText::_('COM_FFW01ROSTER_EVENT_EDIT_CAPTION');
         }
 
-        JToolbarHelper::title($title);
+        JToolbarHelper::title($title, 'pencil-2');
         JToolbarHelper::save('event.save');
         JToolbarHelper::cancel('event.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
     }
