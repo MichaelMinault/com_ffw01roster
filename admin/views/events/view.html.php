@@ -11,9 +11,10 @@ class FFW01RosterViewEvents extends JViewLegacy
         $this->listOrdering = $this->get('ListOrdering');
         $this->listDirection = $this->get('ListDirection');
 
+        $this->canDo = JHelperContent::getActions('com_ffw01roster');
+
         if (count($errors = $this->get('Errors'))) {
-            JError::raiseError(500, implode('<br />', $errors));
-            return false;
+            throw new Exception(implode("\n", $errors), 500);
         }
 
         FFW01RosterHelper::addSubmenu('events');
@@ -26,8 +27,22 @@ class FFW01RosterViewEvents extends JViewLegacy
     protected function addToolBar()
     {
         JToolbarHelper::title(JText::_('COM_FFW01ROSTER_EVENTS_CAPTION'), 'stack');
-        JToolbarHelper::addNew('event.add');
-        JToolbarHelper::editList('event.edit');
-        JToolbarHelper::deleteList('', 'events.delete');
+
+        if ($this->canDo->get('core.create')) {
+            JToolbarHelper::addNew('event.add');
+        }
+        
+        if ($this->canDo->get('core.edit')) {
+            JToolbarHelper::editList('event.edit');
+        }
+        
+        if ($this->canDo->get('core.delete')) {
+            JToolbarHelper::deleteList('', 'events.delete');
+        }
+
+        if ($this->canDo->get('core.admin')) {
+            JToolBarHelper::divider();
+            JToolBarHelper::preferences('com_ffw01roster');
+        }
     }
 }

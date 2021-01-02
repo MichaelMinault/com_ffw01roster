@@ -39,4 +39,11 @@ class FFW01RosterModelEvent extends JModelAdmin
 
         return $data;
     }
+
+    protected function canDelete($record)
+    {
+        if (!empty($record->catid)) {
+            return JFactory::getUser()->authorise("core.delete", "com_ffw01roster.category." . $record->catid);
+        }
+    }
 }

@@ -8,9 +8,10 @@ class FFW01RosterViewEvent extends JViewLegacy
         $this->form = $this->get('Form');
         $this->item = $this->get('Item');
 
+        $this->canDo = JHelperContent::getActions('com_ffw01roster', 'category', $this->item->catid);
+
         if (count($errors = $this->get('Errors'))) {
-            JError::raiseError(500, implode('<br />', $errors));
-            return false;
+            throw new Exception(implode("\n", $errors), 500);
         }
 
         $this->addToolBar();
@@ -27,13 +28,23 @@ class FFW01RosterViewEvent extends JViewLegacy
         $isNew = ($this->item->id == 0);
 
         if ($isNew) {
-            $title = JText::_('COM_FFW01ROSTER_EVENT_NEW_CAPTION');
-        } else {
-            $title = JText::_('COM_FFW01ROSTER_EVENT_EDIT_CAPTION');
-        }
+            JToolbarHelper::title(JText::_('COM_FFW01ROSTER_EVENT_NEW_CAPTION'), 'pencil-2');
 
-        JToolbarHelper::title($title, 'pencil-2');
-        JToolbarHelper::save('event.save');
-        JToolbarHelper::cancel('event.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+            if ($this->canDo->get('core.create')) {
+                JToolbarHelper::apply('event.apply');
+                JToolbarHelper::save('event.save');
+            }
+
+            JToolbarHelper::cancel('event.cancel', 'JTOOLBAR_CANCEL');
+        } else {
+            JToolbarHelper::title(JText::_('COM_FFW01ROSTER_EVENT_EDIT_CAPTION'), 'pencil-2');
+
+            if ($this->canDo->get('core.edit')) {
+                JToolbarHelper::apply('event.apply');
+                JToolbarHelper::save('event.save');
+            }
+
+            JToolbarHelper::cancel('event.cancel', 'JTOOLBAR_CLOSE');
+        }
     }
 }

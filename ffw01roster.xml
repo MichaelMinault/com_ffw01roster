@@ -37,6 +37,7 @@
             <filename>index.html</filename>
             <filename>ffw01roster.php</filename>
             <filename>controller.php</filename>
+            <filename>config.xml</filename>
             <filename>access.xml</filename>
             <folder>controllers</folder>
             <folder>models</folder>
