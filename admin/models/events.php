@@ -30,7 +30,7 @@ class FFW01RosterModelEvents extends JModelList
         $filterSearch = $db->escape($this->getFilterSearch(), true);
 
         if (!empty($filterSearch)) {
-            $query->where('title LIKE ' . $db->quote('%' . $filterSearch . '%'));
+            $query->where('e.title LIKE ' . $db->quote('%' . $filterSearch . '%'));
         }
 
         $listOrdering = $db->escape($this->getListOrdering());

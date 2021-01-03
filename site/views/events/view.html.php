@@ -5,11 +5,14 @@ class FFW01RosterViewEvents extends JViewLegacy
 {
     public function display($tpl = null)
     {
-        $this->msg = $this->get('Msg');
+        $this->items = $this->get('Items');
+        $this->pagination = $this->get('Pagination');
+        $this->filterForm = $this->get('FilterForm');
+        $this->listOrdering = $this->get('ListOrdering');
+        $this->listDirection = $this->get('ListDirection');
 
         if (count($errors = $this->get('Errors'))) {
-            JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
-            return false;
+            throw new Exception(implode("\n", $errors), 500);
         }
 
         parent::display($tpl);

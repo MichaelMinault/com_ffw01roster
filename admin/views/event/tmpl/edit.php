@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_ffw01roster&layout=edit&id=' . (int) $this->item->id); ?>"
+<form action="<?php echo JRoute::_('index.php?option=com_ffw01roster&view=event&layout=edit&id=' . (int) $this->item->id); ?>"
     method="post" name="adminForm" id="adminForm">
     <div class="form-horizontal">
         <fieldset class="adminform">
