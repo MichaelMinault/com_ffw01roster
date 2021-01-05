@@ -47,6 +47,15 @@ class FFW01RosterModelEvent extends JModelAdmin
         }
     }
 
+    public function filterCatid($value)
+    {
+        if (!empty($value) && (int)$value != 0) {
+            return $value;
+        } else {
+            return null;
+        }
+    }
+
     protected function prepareTable($table)
     {
         if (empty($table->created_by)) {

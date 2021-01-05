@@ -27,11 +27,9 @@ class FFW01RosterControllerEvent extends JControllerForm
 
             if ($oldCategoryId) {
                 $user  = JFactory::getUser();
-                $ownItem = $user->id == $item->created_by;
-
                 $allow = $user->authorise('core.edit', 'com_ffw01roster.category.' . $oldCategoryId);
                 
-                if (!$allow && $ownItem) {
+                if (!$allow && $user->id == $item->created_by) {
                     $allow = $user->authorise('core.edit.own', 'com_ffw01roster.category.' . $oldCategoryId);
                 }
 
@@ -39,11 +37,7 @@ class FFW01RosterControllerEvent extends JControllerForm
                     $newCategoryId = ArrayHelper::getValue($data, 'catid', 0, 'int');
 
                     if ($newCategoryId && $newCategoryId != $oldCategoryId) {
-                        $allow = $user->authorise('core.edit', 'com_ffw01roster.category.' . $newCategoryId);
-                
-                        if (!$allow && $ownItem) {
-                            $allow = $user->authorise('core.edit.own', 'com_ffw01roster.category.' . $newCategoryId);
-                        }
+                        $allow = $user->authorise('core.create', 'com_ffw01roster.category.' . $newCategoryId);
                     }
                 }
 
