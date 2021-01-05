@@ -4,5 +4,6 @@
         <field name="id" type="hidden" />
         <field name="title" type="text" label="COM_FFW01ROSTER_EVENT_TITLE_FIELD_LABEL" description="COM_FFW01ROSTER_EVENT_TITLE_FIELD_DESC" size="100" class="inputbox" default="" />
         <field name="catid" type="category" label="JCATEGORY" description="COM_FFW01ROSTER_EVENT_CATID_FIELD_DESC" extension="com_ffw01roster" required="true" default="" />
+        <field name="created_by" type="user" label="COM_FFW01ROSTER_EVENT_CREATED_BY_FIELD_LABEL" description="COM_FFW01ROSTER_EVENT_CREATED_BY_FIELD_DESC" />
     </fieldset>
 </form>

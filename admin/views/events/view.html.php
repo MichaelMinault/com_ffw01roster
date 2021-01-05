@@ -27,18 +27,9 @@ class FFW01RosterViewEvents extends JViewLegacy
     protected function addToolBar()
     {
         JToolbarHelper::title(JText::_('COM_FFW01ROSTER_EVENTS_CAPTION'), 'stack');
-
-        if ($this->canDo->get('core.create')) {
-            JToolbarHelper::addNew('event.add');
-        }
-        
-        if ($this->canDo->get('core.edit')) {
-            JToolbarHelper::editList('event.edit');
-        }
-        
-        if ($this->canDo->get('core.delete')) {
-            JToolbarHelper::deleteList('', 'events.delete');
-        }
+        JToolbarHelper::addNew('event.add');
+        JToolbarHelper::editList('event.edit');
+        JToolbarHelper::deleteList('JGLOBAL_CONFIRM_DELETE', 'events.delete');
 
         if ($this->canDo->get('core.admin')) {
             JToolBarHelper::divider();

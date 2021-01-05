@@ -33,6 +33,12 @@ class FFW01RosterModelEvents extends JModelList
             $query->where('e.title LIKE ' . $db->quote('%' . $filterSearch . '%'));
         }
 
+        $user  = JFactory::getUser();
+        if (!$user->authorise('core.admin')) {
+            $groups = implode(',', $user->getAuthorisedViewLevels());
+            $query->where('c.access IN (' . $groups . ')');
+        }
+
         $listOrdering = $db->escape($this->getListOrdering());
         $listDirection = $db->escape($this->getListDirection());
               
